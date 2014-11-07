@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+	<title>Gems Game Login Form</title>
+</head>
+<body>
+<form action="/login" method="post">
+	<fieldset>
+	<% if (message.length > 0) { %>
+		<div><%= message %></div>
+	<% } %>
+	  <label>Email</label>
+	  <input type="text" tabindex="1" placeholder="Enter Your Email Address" name="email" required>
+ 	<label>Password</label>
+	  <input type="password" tabindex="2"  name="password" required>
+	</fieldset>
+	<footer>
+	<input TYPE="button"value="SignUp"  onClick="parent.location='/signup'">
+	  <input type="submit" value="Login" tabindex="4">
+	</footer>
+</form>
+</body>
+</html>

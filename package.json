@@ -1,0 +1,25 @@
+{
+  "name": "Gems",
+  "version": "1.0.0",
+  "description": "Gems Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Jimenez",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "body-parser": "^1.9.2",
+    "connect-flash": "^0.1.1",
+    "ejs": "^1.0.0",
+    "express": "^4.10.1",
+    "mongoose": "^3.8.18",
+    "morgan": "^1.5.0",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}

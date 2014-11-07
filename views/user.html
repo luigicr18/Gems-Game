@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+	<title>Gems Game User information</title>
+</head>
+<body>
+	<div>
+		<fieldset>
+			<div>
+				<div>
+					<label><strong>User Name:</strong> <%= user.user.username %></label>
+					<label><strong>Name:</strong> <%= user.user.name %></label> 
+					<label><strong>Email:</strong> <%= user.user.email %></label> 
+					<label><strong>Location:</strong> <%= user.user.address %></label> 
+				</div>
+				<br>
+				<br>
+				<div>
+					<label><a href="/edit"><strong>Update Profile</strong></a></label>
+				</div>
+			</div>
+		</fieldset>
+	</div>
+</body>
+</html>
