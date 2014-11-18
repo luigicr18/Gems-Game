@@ -1,0 +1,17 @@
+body{
+	padding-top: 500px;
+  background-color: green;
+}
+
+#gamefield{
+  background-color:black;
+  margin:0;
+}
+
+#marker{
+  background-color:transparent;
+  width:52px;
+  height:52px;
+  border:5px solid red;
+  position:absolute;
+}
