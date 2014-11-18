@@ -1,10 +1,15 @@
 var User    = require('../app/models/user');
+var Game    = require('../app/models/game');
 var path 	= require('path'),
 fs 			= require('fs');
 module.exports = function(app, passport, server) {
 	
-	app.get('/', auth, function(request, response) {
-		response.render('gemsgame.html');
+	app.get('/', function(request, response) {
+		response.render('index.html');
+	});
+
+	app.get('/index', function(request, response) {
+		response.render('index.html');
 	});
 
 	app.get('/user', auth, function(request, response) {
@@ -20,9 +25,11 @@ module.exports = function(app, passport, server) {
 	});
 
 	app.get('/gemsgame', auth, function(request, response) {
-		response.render('edit.html');
+    var gameTmp = new Game().createNewGame(request.user.user);
+		request.game = gameTmp;
+		response.render('gemsgame.html');
 	});
-	
+
 	app.get('/logout', function(request, response) {
 		request.logout();
 		response.redirect('/');
@@ -33,7 +40,7 @@ module.exports = function(app, passport, server) {
 	});
 
 	app.post('/login', passport.authenticate('login', {
-		successRedirect : 'gemsgame.html', 
+		successRedirect : 'gemsgame', 
 		failureRedirect : '/login', 
 		failureFlash : true
 	}));
@@ -43,13 +50,13 @@ module.exports = function(app, passport, server) {
 	});
 
 	app.post('/signup', passport.authenticate('signup', {
-			successRedirect : '/about',
+			successRedirect : '/login',
 			failureRedirect : '/signup', 
-			failureFlash : true 
+			failureFlash : 'Sign up Fail' 
 		}));
 
 	app.get('/edit', function(request, response) {
-		response.render('edit.html', { message: request.flash('updateerror') });
+		response.render('edit.html');
 	});
 
 	app.post('/edit',  function (request, response){
@@ -57,12 +64,21 @@ module.exports = function(app, passport, server) {
             		if (err){ return done(err);}
             		if (user)
                 			user.updateUser(request, response)
-
                      });
 	});
+
+	app.post('/gemsgame', auth, function(request, response) {
+    request.user.updateUserScore(request.body.score);
+    response.redirect('/gemsgame');
+  });
 };
 
 function auth(request, response, next) {
   if (request.isAuthenticated()) { return next(); }
   response.redirect('/login')
+}
+
+function consolecall(request, response, next){
+	console.log('call login');
+	return next();
 }
