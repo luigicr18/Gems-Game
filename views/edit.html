@@ -1,23 +1,36 @@
-<!doctype html>
-<html>
-<head>
-	<title>Gems Game Login Form</title>
-</head>
-<body>
-	<form action="/edit" method="post" enctype="multipart/form-data">
-		<label>User Name</label>
-		  <input type="text" tabindex="1" placeholder="Enter Your User Name" name="username" value ="<%= user.user.username %>" readonly>
-		<label>Name</label>
-		  <input type="text" tabindex="1" placeholder="Enter Your Name" name="name" value ="<%= user.user.name %>" required>
-		<label>Email</label>
-		  <input type="text" tabindex="1" placeholder="Enter Your Email Address" name="email" value ="<%= user.user.email %>" readonly>
-		  <label>Location</label>
-		  <input type="text" tabindex="1" placeholder="Enter Your Location" name="address" value ="<%= user.user.address %>" required>
-	  <label>Image</label><img src="/image.png"  name="userimage" id="userimage"  />
-	    <input type="file" name="file">
-		<footer>
-		  <input type="submit" value="Update" tabindex="1">
-		</footer>
-	</form>
-</body>
-</html>
+<% include header.html %>
+      <h4>User Account</h4>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrapper clearfix">
+          <div class="formy">
+            <div class="row">
+              <div class="col-md-12">
+                <form action="/edit" method="post" enctype="multipart/form-data" name="frmEditUser">
+                  <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" tabindex="1" class="form-control" name="username" id="username" value ="<%= user.user.username %>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" tabindex="1" class="form-control" name="email" id="email" value ="<%= user.user.email %>" readonly>
+                  </div>
+                  <div class="form-group">
+                    <label for="address">Location</label>
+                    <input type="text" tabindex="1" class="form-control" id="address" name="address" value ="<%= user.user.address %>" required>
+                  </div>
+                  <div class="submit">
+                    <label><a href="javascript:frmEditUser.submit()"><strong>Update</strong></a></label>
+                  </div>
+                </form>
+              </div>            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% include footer.html %>

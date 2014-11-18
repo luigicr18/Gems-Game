@@ -1,25 +1,41 @@
-<!doctype html>
-<html>
-<head>
-	<title>Gems Game User information</title>
-</head>
-<body>
-	<div>
-		<fieldset>
-			<div>
-				<div>
-					<label><strong>User Name:</strong> <%= user.user.username %></label>
-					<label><strong>Name:</strong> <%= user.user.name %></label> 
-					<label><strong>Email:</strong> <%= user.user.email %></label> 
-					<label><strong>Location:</strong> <%= user.user.address %></label> 
-				</div>
-				<br>
-				<br>
-				<div>
-					<label><a href="/edit"><strong>Update Profile</strong></a></label>
+<% include header.html %>
+		<h4>User information</h4>
+  </div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="wrapper clearfix">
+				<div class="formy">
+					<div class="row">
+						<div class="col-md-12">
+							<div>
+								<fieldset>
+									<div>
+										<div class="form-group">
+											<label><strong>User Name:</strong> <%= user.user.username %></label>
+										</div>
+										<div class="form-group">
+											<label><strong>Email:</strong> <%= user.user.email %></label>
+										</div>
+										<div class="form-group">
+											<label><strong>Location:</strong> <%= user.user.address %></label> 
+										</div>div class="form-group">
+											<label><strong>Best Score:</strong> <%= user.user.bestscore %></label> 
+										</div>
+										<br>
+										<br>
+										<div>
+											<label><a href="/edit"><strong>Update Profile</strong></a></label>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-		</fieldset>
+		</div>
 	</div>
-</body>
-</html>
+</div>
+<% include footer.html %>

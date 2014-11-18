@@ -2,13 +2,14 @@ var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
-    user: {
-		username     :String,
-        email        : String,
-        password     : String,
-		name	     : String,
-		address      : String
-    }
+  user: {
+  username     : String,
+  email        : { type: String, required: true, unique: true },
+  password     : String,
+  address      : String,
+  bestscore    : { type:Number, default: 0 },
+  isAvailable  : { type:Boolean, default: true}
+  }
 });
 
 userSchema.methods.generateHash = function(password) {
@@ -24,6 +25,14 @@ userSchema.methods.updateUser = function(request, response){
 	this.user.address = request.body.address;
 	this.user.save();
 	response.redirect('/user');
+};
+
+userSchema.methods.updateUserScore = function(currentScore){
+  if ( this.user.bestscore < currentScore || this.user.bestscore === null ) {
+    this.user.bestscore = currentScore;
+    this.user.save();
+  };
+
 };
 
 module.exports = mongoose.model('User', userSchema);

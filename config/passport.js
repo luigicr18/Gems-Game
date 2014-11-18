@@ -43,11 +43,9 @@ module.exports = function(passport) {
         usernameField : 'email',
         passReqToCallback : true 
     },
-    function(req, email, password, done) { console.log('Entra Sign up step 1');
+    function(req, email, password, done) {
         process.nextTick(function() {
-            console.log('Entra Sign up step 2');
             if (!req.user) {
-                console.log('Entra Sign up step 3');
                 User.findOne({ 'user.email' :  email }, function(err, user) {
                     if (err){ return done(err);}
                     if (user) {
@@ -68,7 +66,6 @@ module.exports = function(passport) {
 
                 });
             } else {
-                console.log('Entra Sign up step 3.1');
                 var user            = req.user;
                 user.user.username    = req.body.username;
                 user.user.email    = email;
