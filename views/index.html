@@ -3,28 +3,44 @@
 <head>
     <meta charset="utf-8">
     <title>GEMS GAME</title>
-    <link href='/bootstrap/css/bootstrap.min.css' />
-    <link href='/stylesheets/compiled/theme.css' />
-    <script src="/js/jquery-2.1.1.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/angular/lib/angular.min.js"></script>
-    <script src="/angular/lib/angular-route.min.js"></script>
-    <script src="/angular/angularApp.js"></script>
-    <script src="/angular/angularRoutes.js"></script>
+    <link rel="stylesheet" type="text/css" href='/bootstrap/css/bootstrap.min.css' />
+    <link rel="stylesheet" type="text/css" href='/stylesheets/compiled/theme.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
   <div class="navbar">
     <div class="navbar-inner">
       <ul class="nav">
-        <li> <a href="gemsgame.html">Gems Game JQuery</a></li>
-        <li> <a href="gemsgame.html">Gems Game Angular</a></li>
-        <li> <a href="gemsgame.html">About US</a></li>
+        <li> <a href="/">Home</a></li>
+        <li> <a href="#/gemsgame">Gems Game JQuery</a></li>
+        <li> <a href="#/gemsgameAngular">Gems Game Angular</a></li>
+        <li> <a href="#/about_us">About US</a></li>
       </ul>
     </div>
   </div>
   <div>
-    <div ng-view></div>
+    <div class="container">
+      <div ng-view></div>
+    </div>
   </div>
-</body>
 
+
+</body>
+    <script src="/bootstrap/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/bootstrap/js/underscore-1.4.4.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/angular/lib/angular.min.js"></script>
+    <script src="/angular/lib/angular-route.min.js"></script>
+    <script src="/angular/lib/angular-animate.min.js"></script>
+    <script src="/angular/angularApp.js"></script>
+    <script src="/angular/angularRoutes.js"></script>
+    <script src="/angular/controllers/indexController.js"></script>
+    <script src="/angular/controllers/aboutUsController.js"></script>
+    <script src="/angular/controllers/gemsgameController.js"></script>
+    <script src="/angular/controllers/gemsgameAngularController.js"></script>
+    <script src="/angular/controllers/gemSelectedController.js"></script>
+    <script src="/angular/controllers/gridControllerAn.js"></script>
+    <script src="/angular/directives/gemBoxDirective.js"></script>
+    <script type='text/javascript' src='/js/gemsgame.js'></script>
 </html>

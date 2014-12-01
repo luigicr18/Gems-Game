@@ -13,7 +13,7 @@ function clickGem(gemSelected){
     posY=$(gemSelected).position().top;
     posX=$(gemSelected).position().left;
     $("#marker").show();
-    $("#marker").css("top",posY).css("left",posX);
+    $("#marker").css("top",(posY+121)).css("left",(posX+107));
     if(selectedRow==-1){
       selectedRow= Math.round((posY-10)/60);
       selectedCol= Math.round((posX-10)/60);

@@ -1,24 +1,27 @@
-gemsAngularApp.config(function($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode(true);
-  $routeProvider
-      // route for the home page
-      .when('/', {
-          templateUrl : '../views/index.html'
-      })
+angular
+  .module("gemsAngularApp", ['ngRoute'])
+  .config(function($routeProvider, $locationProvider) {
+    $routeProvider
 
-      .when('/index', {
-          templateUrl : '../views/index.html'
-      })
+       .when('/', {
+           templateUrl: "./angular/views/templates/home.html",
+           controller  :  'indexController'
+       })
 
-      // route for the about page
-      .when('/about', {
-          templateUrl : 'pages/about.html',
-          controller  : 'aboutController'
-      })
+       .when('/about_us', {
+           templateUrl: "./angular/views/templates/about_us.html",
+           controller  :  'aboutUsController'
+       })
 
-      // route for the contact page
-      .when('/contact', {
-          templateUrl : 'pages/contact.html',
-          controller  : 'contactController'
-      });
-});
+       .when('/gemsgame', {
+           templateUrl: "./angular/views/templates/gemsgame.html",
+           controller  :  'gemsgameController'
+       })
+
+       .when('/gemsgameAngular', {
+           templateUrl: "./angular/views/templates/gemsgameAngular.html",
+           controller  :  'gemsgameAngularController'
+       })
+
+  });
+;
